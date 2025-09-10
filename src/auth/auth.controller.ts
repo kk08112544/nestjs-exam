@@ -18,7 +18,7 @@ async createNewUser(@Body() postData: any, @Res() res: Response): Promise<any> {
     return res.status(400).json({ message: 'Content is not empty' });
   }
   try {
-      if(postData.password.length>=6){
+      if(postData.password.length>=8){
           const data = await this.authService.create(postData);
         return res.status(201).json(data);
       }else{
